@@ -17,7 +17,7 @@ export const GET_BANNER='/getBanner'
 
 //DOCTOR
 
-export const DOC_SIGN_UP='doc/signup'
+export const DOC_SIGN_UP='/signup'
 export const DOC_LOGIN='/login'
 export const DOC_DETAILS='/details'
 export const UPDATE_DOC_DETAILS='/updateDetails'
