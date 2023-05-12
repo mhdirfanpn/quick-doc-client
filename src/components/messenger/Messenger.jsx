@@ -46,7 +46,7 @@ function Messenger({ isUser }) {
 
 
   useEffect(() => {
-    socket.current = io("ws://localhost:7000");
+    socket.current = io("wss://api.quickdoc.online");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,

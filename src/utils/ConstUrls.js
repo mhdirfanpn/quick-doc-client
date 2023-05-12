@@ -1,6 +1,6 @@
-export const baseUserUrl = "http://localhost:7000/api/"
-export const baseAdminUrl = "http://localhost:7000/api/admin"
-export const baseDoctorUrl = "http://localhost:7000/api/doc"
+export const baseUserUrl = "https://api.quickdoc.online/api/"
+export const baseAdminUrl = "https://api.quickdoc.online/api/admin"
+export const baseDoctorUrl = "https://api.quickdoc.online/api/doc"
 //USER
 
 export const USER_SIGN_UP='/signup'
