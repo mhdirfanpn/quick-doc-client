@@ -4,6 +4,7 @@ import { Box, Heading, Stack, Flex, Avatar, Badge } from "@chakra-ui/react";
 import axios from "../../utils/axios";
 import { USER_CHAT, DOC_CHAT } from "../../utils/ConstUrls";
 import { MdVideoCall } from "react-icons/md";
+import { doctorInstance } from "../../utils/axios";
 import jwtDecode from "jwt-decode";
 import { useSelector } from "react-redux";
 
@@ -46,9 +47,7 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
     const getSession = async () => {
       try {
         if (isDoctor) {
-          const res = await axios.get(`doc/getActiveSession/${currentUser}`, {
-            headers: { Authorization: `Bearer ${doctorToken}` },
-          });
+          const res = await doctorInstance.get(`getActiveSession/${currentUser}`);
           setActiveSession(res.data);
           handleActiveSessionId(res.data.userId);
         } else {
@@ -56,7 +55,7 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
             headers: { Authorization: `Bearer ${userToken}` },
           });
           setActiveSession(res.data);
-          handleActiveSessionId(res.data.doctorId);
+          handleActiveSessionId(res.data?.doctorId);
         }
       } catch (error) {
         console.log(error);
