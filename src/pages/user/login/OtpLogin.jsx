@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { Button, Flex, FormControl, FormLabel, Heading, Text, Stack, Image, Input } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +6,6 @@ import { authentication } from "../../../firebase";
 import { OTP_LOGIN } from "../../../utils/ConstUrls";
 import jwtDecode from "jwt-decode";
 import axios from "../../../utils/axios";
-import { setLogin } from "../../../redux/userSlice";
 import { useDispatch, } from "react-redux";
 
 

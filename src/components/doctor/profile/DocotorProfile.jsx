@@ -32,7 +32,7 @@ function DoctorProfile() {
     }
   };
 
-  let imageUrl = doctorDetails.profilePic;
+  let imageUrl = doctorDetails?.profilePic;
 
   return (
     <Box
@@ -55,38 +55,38 @@ function DoctorProfile() {
 
       <VStack spacing={1} align="left" mt={6}>
         <Text fontWeight="bold" fontSize="2xl">
-          {doctorDetails.fullName}
+          {doctorDetails?.fullName}
         </Text>
 
-        <Badge colorScheme="teal">{doctorDetails.specialization}</Badge>
+        <Badge colorScheme="teal">{doctorDetails?.specialization}</Badge>
       </VStack>
 
       <HStack mt="4" spacing={3}>
         <Text fontSize="sm" color="gray.600">
           Email:
         </Text>
-        <Text fontSize="sm">{doctorDetails.email}</Text>
+        <Text fontSize="sm">{doctorDetails?.email}</Text>
       </HStack>
 
       <HStack mt="4" spacing={3}>
         <Text fontSize="sm" color="gray.600">
           Phone:
         </Text>
-        <Text fontSize="sm">{doctorDetails.number}</Text>
+        <Text fontSize="sm">{doctorDetails?.number}</Text>
       </HStack>
 
       <HStack mt="2" spacing={3}>
         <Text fontSize="sm" color="gray.600">
           DOB:
         </Text>
-        <Text fontSize="sm">{doctorDetails.date}</Text>
+        <Text fontSize="sm">{doctorDetails?.date}</Text>
       </HStack>
 
       <HStack mt="4" spacing={3}>
         <Text fontSize="sm" color="gray.600">
           Experience:
         </Text>
-        <Text fontSize="sm">{doctorDetails.experience}</Text>
+        <Text fontSize="sm">{doctorDetails?.experience}</Text>
       </HStack>
     </Box>
   );

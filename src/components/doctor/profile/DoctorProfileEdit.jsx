@@ -158,7 +158,7 @@ const DoctorProfileEdit = () => {
     getDoctorDetails();
   }, [state]);
 
-  let imageUrl = doctorDetails.profilePic;
+  let imageUrl = doctorDetails?.profilePic;
 
   return (
     <Box
