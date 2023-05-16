@@ -64,6 +64,8 @@ const App = () => {
 
        <Routes>
 
+     <Route path='*' element={<PageNotFound/>} />
+
   {/* ========================================USER ROUTES============================================================= */}        
 
           <Route path='/' element={
@@ -286,7 +288,7 @@ const App = () => {
             </AuthorizeAdmin>
           } />
 
-          <Route path='*' element={<PageNotFound/>} />
+
 
           
        </Routes>
