@@ -5,7 +5,7 @@ import { setLogin } from "../../redux/userSlice";
 export default function AuthorizeUser({ children }) {
   const token = localStorage.getItem("userToken");
   if (!token) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/login"} />;
   }
   store.dispatch(
     setLogin({

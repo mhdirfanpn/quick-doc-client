@@ -29,13 +29,15 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
     for (i = 0; i < 5; i++) {
       result += chars.charAt(Math.floor(Math.random() * maxPos));
     }
-    console.log(result);
+    console.log('eee',result);
     let link = {};
     link.data = result;
     const body = link;
 
     try {
-      axios.put(`doc/link/${commonUser.id}`, body).then((res) => {});
+      axios.put(`doc/link/${commonUser.id}`, body).then((res) => {
+        console.log(res);
+      });
     } catch (error) {
       console.log(error);
     }
