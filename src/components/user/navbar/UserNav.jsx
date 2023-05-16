@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 
 export default function ChatNavBar() {
   const [navbar, setNavbar] = useState(false);
-  const token = localStorage.getItem("userToken");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -28,17 +27,11 @@ export default function ChatNavBar() {
   };
 
   return (
+
     <nav
-      className="w-full bg-white shadow"
-      style={{
-        backgroundColor: "#4851b0",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 999,
-      }}
-    >
+  className="w-full bg-white shadow" 
+  style={{ backgroundColor: "#4851b0", position: "fixed", top: 0, left: 0, right: 0, zIndex: 999}}
+>
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -94,36 +87,23 @@ export default function ChatNavBar() {
             }`}
           >
             <ul className="flex items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              {token ? (
-                <>
-                  <li className="text-white cursor-pointer">
-                    <p onClick={() => navigate("/user-messenger")}>Chat</p>
-                  </li>
-                  <li className="text-white cursor-pointer">
-                    <p onClick={() => navigate("/userSessions")}>Appointment</p>
-                  </li>
-                  <li className="text-white cursor-pointer">
-                    <p onClick={() => navigate("/profile")}>Profile</p>
-                  </li>
-                  <li className="text-white text-right">
-                    <button
-                      onClick={handleLogout}
-                      className="bg-transparent text-white font-bold uppercase py-2 px-4 border border-white hover:bg-white hover:text-green-600 rounded transition duration-500 ease-in-out"
-                    >
-                      Logout
-                    </button>
-                  </li>
-                </>
-              ) : (
-                <li className="text-white text-right">
-                  <button
-                    onClick={() => navigate("/login")}
-                    className="bg-transparent text-white font-bold uppercase py-2 px-4 border border-white hover:bg-white hover:text-green-600 rounded transition duration-500 ease-in-out"
-                  >
-                    Login
-                  </button>
-                </li>
-              )}
+              <li className="text-white cursor-pointer">
+                <p onClick={() => navigate("/user-messenger")}>Chat</p>
+              </li>
+              <li className="text-white cursor-pointer">
+                <p onClick={() => navigate("/userSessions")}>Appointment</p>
+              </li>
+              <li className="text-white cursor-pointer">
+                <p onClick={() => navigate("/profile")}>Profile</p>
+              </li>
+              <li className="text-white text-right-0">
+                <button
+                  onClick={handleLogout}
+                  className="bg-transparent text-white  text-right font-bold uppercase py-2 px-4 border border-white hover:bg-white hover:text-green-600 rounded transition duration-500 ease-in-out"
+                >
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -131,3 +111,7 @@ export default function ChatNavBar() {
     </nav>
   );
 }
+
+
+
+

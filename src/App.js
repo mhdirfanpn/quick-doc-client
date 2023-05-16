@@ -68,12 +68,6 @@ const App = () => {
 
           <Route path='/' element={
             <AuthUser>
-              <Home/>
-            </AuthUser>
-          }/>
-
-         <Route path='/login' element={
-            <AuthUser>
               <Login/>
             </AuthUser>
           }/>
@@ -124,9 +118,11 @@ const App = () => {
           }/>
 
           <Route path='/doctorDetails/:doctorId' element={
+            <AuthorizeUser>
               <Suspense fallback={<SpinnerLoader/>}>
               <DoctorDetails/>
               </Suspense> 
+            </AuthorizeUser>
           }/>
 
           <Route path='/checkAvailability/:doctorId' element={
