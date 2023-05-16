@@ -22,7 +22,7 @@ import DoctorLogin from './pages/doctor/login/DoctorLogin'
 import Login from './pages/user/login/Login'
 import RoomPage from './pages/room'
 import DoctorRegister from './pages/doctor/register/DoctorRegister'
-import PageNotFound from './pages/notFound/PageNotFound'
+
 import Dashboard from './pages/admin/dashboard/Dashboard'
 
 const Banner = lazy(()=>import('./pages/admin/banner/Banner'))
@@ -127,7 +127,7 @@ const App = () => {
 
           <Route path='/checkAvailability/:doctorId' element={
             <AuthorizeUser>
-                <Suspense fallback={<SpinnerLoader/>}>
+<Suspense fallback={<SpinnerLoader/>}>
                 <AvailableTime/>
                 </Suspense>
             </AuthorizeUser>
@@ -285,8 +285,6 @@ const App = () => {
               </Suspense>
             </AuthorizeAdmin>
           } />
-
-
 
           
        </Routes>
