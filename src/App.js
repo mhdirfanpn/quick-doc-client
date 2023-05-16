@@ -64,8 +64,6 @@ const App = () => {
 
        <Routes>
 
-     <Route path='*' element={<PageNotFound/>} />
-
   {/* ========================================USER ROUTES============================================================= */}        
 
           <Route path='/' element={
