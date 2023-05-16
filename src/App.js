@@ -124,11 +124,9 @@ const App = () => {
           }/>
 
           <Route path='/doctorDetails/:doctorId' element={
-            <AuthUser>
               <Suspense fallback={<SpinnerLoader/>}>
               <DoctorDetails/>
               </Suspense> 
-            </AuthUser>
           }/>
 
           <Route path='/checkAvailability/:doctorId' element={
