@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Heading, Flex, Avatar } from "@chakra-ui/react";
 import jwtDecode from 'jwt-decode';
-const ChatAvatar = ({isDoctor,isUser,currentUserId}) => {
+const ChatAvatar = () => {
   
   // let chatterId;
   
@@ -14,7 +14,7 @@ const ChatAvatar = ({isDoctor,isUser,currentUserId}) => {
 
 
   return (
-    <Box position="fixed" bg={"whiteAlpha.900"} w={isDoctor ? "40%" : '40%'} mt={isDoctor ? "62px" : "72px"}>
+    <Box position="fixed" bg={"whiteAlpha.900"} w={'40%'} mt={"72px"}>
         <Flex alignItems="center" mt={1}> 
           <Avatar size="md" name="John Doe" src="https://bit.ly/dan-abramov" />
           <Box ml="4">
