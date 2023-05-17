@@ -68,7 +68,8 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
           setChatter(doctorData.data?.doctor);
         }
       } catch (error) {
-        navigate("/error");
+        console.log(error);
+     //   navigate("/error");
       }
     };
 
