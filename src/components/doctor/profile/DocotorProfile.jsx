@@ -28,7 +28,7 @@ function DoctorProfile() {
       const response = await doctorInstance.get(`${DOC_DETAILS}/${decode.id}`);
       setDoctorDetails(response.data.doctorDetails);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 

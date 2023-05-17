@@ -34,7 +34,7 @@ const Register = () => {
         }
       })
       .catch((err) => {
-        toast.error("Oops Something went wrong");
+        navigate('/error')
       });
     actions.resetForm();
   };

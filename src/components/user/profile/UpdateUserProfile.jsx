@@ -37,6 +37,7 @@ import {
   UPDATE_PASS,
   UPDATE_IMG,
 } from "../../../utils/ConstUrls";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProperty = () => {
   const [UserDetails, setUserDetails] = useState("");
@@ -47,6 +48,7 @@ const UpdateProperty = () => {
   const token = localStorage.getItem("userToken");
   const decode = jwtDecode(token);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const getUserDetails = async () => {
     try {
@@ -59,12 +61,10 @@ const UpdateProperty = () => {
           dispatch(hideLoading());
         })
         .catch((err) => {
-          console.log(err);
-          dispatch(hideLoading());
+          navigate('/error')
         });
     } catch (err) {
-      console.log(err);
-      dispatch(hideLoading());
+      navigate('/error')
     }
   };
 

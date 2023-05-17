@@ -6,7 +6,7 @@ export default function NotFound() {
     const navigate = useNavigate()
 
     const handleGoBack = () => {
-      navigate(-1); // Takes the user back to the previous page
+      navigate(-1);
     };
    
 

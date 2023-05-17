@@ -13,7 +13,6 @@ const Conversations = ({ conversation, currentUser, isDoctor }) => {
     const getUser = async () => {
       try {
         if (isDoctor) {
-          console.log(chatterId);
           const res = await axios.get(`${USER_CHAT}/${chatterId}`);
           setUser(res.data);
         } else {
@@ -21,7 +20,7 @@ const Conversations = ({ conversation, currentUser, isDoctor }) => {
           setUser(res.data);
         }
       } catch (err) {
-        console.log(err);
+        navigate('/error')
       }
     };
     getUser();

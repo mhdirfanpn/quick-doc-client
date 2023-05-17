@@ -15,11 +15,13 @@ import {
 import { doctorInstance } from "../../../utils/axios";
 import { DOC_APPOINTMENT } from "../../../utils/ConstUrls";
 import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const AppointmentList = () => {
   const token = localStorage.getItem("doctorToken");
   const DoctorData = jwtDecode(token);
   const [session, setSession] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     getSessionDetails();
@@ -30,7 +32,7 @@ const AppointmentList = () => {
       const response = await doctorInstance.get(`${DOC_APPOINTMENT}/${DoctorData.id}`);
       setSession(response.data.session);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 

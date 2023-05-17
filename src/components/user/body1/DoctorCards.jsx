@@ -64,12 +64,11 @@ const DoctorCards = () => {
       })
       .then((response) => {
         if (response.data.doctors) {
-          console.log(response);
           setDoctorDetails(response.data.doctors);
         }
       })
       .catch((err) => {
-        console.log(err);
+        navigate('/error')
       });
   };
 

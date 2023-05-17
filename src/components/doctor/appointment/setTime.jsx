@@ -13,6 +13,8 @@ import { doctorInstance } from "../../../utils/axios";
 import { DOC_TIMINGS } from "../../../utils/ConstUrls";
 import toast, { Toaster } from "react-hot-toast";
 import { DatePicker } from "antd";
+import { useNavigate } from "react-router-dom";
+
 
 const availableTimings = [
   { time: "10:00 AM" },
@@ -26,6 +28,7 @@ const availableTimings = [
 function TimeSlot() {
   const [selectedTimings, setSelectedTimings] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
+  const navigate = useNavigate()
 
   const handleTimingSelection = (timing) => {
     const index = selectedTimings.indexOf(timing);
@@ -51,12 +54,11 @@ function TimeSlot() {
       await doctorInstance.post(DOC_TIMINGS, body);
       toast.success("time slot updated successfully");
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 
   const handleDateChange = (date) => {
-    console.log(date.toISOString().split("T")[0]);
     setSelectedDate(date.toISOString().split("T")[0]);
   };
 

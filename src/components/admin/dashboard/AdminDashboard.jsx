@@ -11,11 +11,13 @@ import {
 } from "@chakra-ui/react";
 import { FaRupeeSign, FaUserNurse, FaUsers, FaElementor } from "react-icons/fa";
 import LineGraph from "./LineGraph";
+import { useNavigate } from "react-router-dom";
 import { adminInstance } from "../../../utils/axios";
 import { DASHBOARD } from "../../../utils/ConstUrls";
 import { Toaster, toast } from "react-hot-toast";
 
 const AdminDashboard = () => {
+  const navigate = useNavigate()
   const [users, setUsers] = useState(0);
   const [doctors, setDoctors] = useState(0);
   const [appointments, setAppointments] = useState(0);
@@ -35,7 +37,7 @@ const AdminDashboard = () => {
           setRevenue(res.data.revenue);
         }
     } catch (err) {
-      toast.error(err.message);
+      navigate('/error')
     } 
   };
 

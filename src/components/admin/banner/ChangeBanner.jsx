@@ -23,12 +23,14 @@ import {
   GET_USER_BANNER,
   UPDATE_BANNER_DISC,
 } from "../../../utils/ConstUrls";
+import { useNavigate } from "react-router-dom";
 import { adminInstance } from "../../../utils/axios";
 
 const ChangeBanner = () => {
   const [bannerImage, setBannerImage] = useState("");
   const [banner, setBanner] = useState("");
   const [discription, setDiscription] = useState("");
+  const navigate = useNavigate()
   const { isOpen, onOpen, onClose } = useDisclosure(); // state variables for showing/hiding the modal
   const dispatch = useDispatch();
 
@@ -54,7 +56,7 @@ const ChangeBanner = () => {
     } catch (error) {
       onClose();
       dispatch(hideLoading());
-      toast.error("Oops Something went wrong");
+      navigate('/error')
     }
   };
 
@@ -64,7 +66,7 @@ const ChangeBanner = () => {
         const response = await adminInstance.get(GET_USER_BANNER);
         setBanner(response.data);
       } catch (error) {
-        console.log(error);
+        navigate('/error')
       }
     };
 
@@ -82,7 +84,7 @@ const ChangeBanner = () => {
       await adminInstance.post(UPDATE_BANNER_DISC, NewDiscription);
       toast.success("discription updated successfully");
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 

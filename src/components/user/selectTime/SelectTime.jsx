@@ -50,11 +50,10 @@ const SelectTime = () => {
           headers: { Authorization: `Bearer ${token}` }
         })
         if(response){
-          console.log(response);
           SetTimeSlot(response.data);
         }
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
 
     setSelectedDate(date.toISOString().split("T")[0]);
@@ -84,7 +83,7 @@ const SelectTime = () => {
         toast.error("time slot unavailable");
       }
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 

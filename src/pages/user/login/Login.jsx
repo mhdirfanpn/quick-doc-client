@@ -11,18 +11,15 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { loginSchema } from "../../../schemas";
 import { useFormik } from "formik";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "../../../utils/axios";
 import { USER_LOGIN } from "../../../utils/ConstUrls";
-import { setLogin } from "../../../redux/userSlice";
+
 
 export default function Login() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
   const onSubmit = async (values, actions) => {
     const body = JSON.stringify(values);
       await axios
@@ -30,18 +27,17 @@ export default function Login() {
           headers: { "Content-Type": "application/json" },
         })
         .then(({ data }) => {
-          console.log(data);
           if (data.success) {
             document.cookie = `token:${data.token}`;
        
             navigate("/home");
             localStorage.setItem("userToken", data.token);
           } else {
-            toast.error(data.message);
+            toast.error("something went wrong");
           }
         })
         .catch((err) => {
-          toast.error("Oops Something went wrong");
+          navigate('/error')
         });
     actions.resetForm();
   };

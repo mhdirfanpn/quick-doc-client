@@ -1,6 +1,7 @@
 import axios from "axios";
 import { baseUserUrl, baseAdminUrl, baseDoctorUrl } from "./ConstUrls";
 
+
 const instance = axios.create({
   baseURL: baseUserUrl,
 });
@@ -43,9 +44,8 @@ instance.interceptors.response.use(
   (error) => {
     if (error?.response?.data?.userBlocked) {
       localStorage.removeItem("userToken");
-    } else if (error.message === "Network Error" && !error.response) {
-      console.log("error");
-    } else {
+    } 
+    else {
       return Promise.reject(error);
     }
   }

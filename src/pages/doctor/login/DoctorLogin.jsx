@@ -25,7 +25,6 @@ const DoctorLogin = () => {
       await doctorInstance
         .post(DOC_LOGIN, values)
         .then(({ data }) => {
-          console.log("data", data);
           if (data.success) {
             document.cookie = `token:${data.token}`
             navigate("/doctor-home");
@@ -35,7 +34,7 @@ const DoctorLogin = () => {
           }
         })
         .catch((err) => {
-          toast.error("Oops Something went wrong");
+          navigate('/error')
         });
     actions.resetForm();
   };

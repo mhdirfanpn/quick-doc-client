@@ -49,7 +49,7 @@ const DoctorsList = () => {
       const doctorsToDisplay = filteredDoctors.slice(startIndex, endIndex);
       setDoctors(doctorsToDisplay);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 

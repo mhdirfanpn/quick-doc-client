@@ -13,8 +13,10 @@ import {
 } from "@chakra-ui/react";
 import { adminInstance } from "../../../utils/axios";
 import { APPOINTMENT } from "../../../utils/ConstUrls";
+import { useNavigate } from "react-router-dom";
 
 const AppointmentList = () => {
+  const navigate = useNavigate()
   const [appointment, setAppointment] = useState([""]);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ const AppointmentList = () => {
       const response = await adminInstance.get(APPOINTMENT);
       setAppointment(response.data.appointments);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 

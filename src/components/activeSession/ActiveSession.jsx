@@ -29,17 +29,14 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
     for (i = 0; i < 5; i++) {
       result += chars.charAt(Math.floor(Math.random() * maxPos));
     }
-    console.log('eee',result);
     let link = {};
     link.data = result;
     const body = link;
 
     try {
-      axios.put(`doc/link/${commonUser.id}`, body).then((res) => {
-        console.log(res);
-      });
+      axios.put(`doc/link/${commonUser.id}`, body).then(() => {});
     } catch (error) {
-      console.log(error);
+      navigate('/error')
     }
 
     window.open(`/room/${result}`);
@@ -60,7 +57,7 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
           handleActiveSessionId(res.data?.doctorId);
         }
       } catch (error) {
-        console.log(error);
+        navigate('/error')
       }
     };
 
@@ -69,7 +66,6 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
 
   const handleJoinUser = async () => {
     try {
-      console.log("here");
       await axios.get(`getActiveSession/${currentUser}`,{
         headers: { Authorization: `Bearer ${userToken}` },
       }).then((res) => {
@@ -79,7 +75,7 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
         }
       });
     } catch (error) {
-      console.log(error);
+      navigate('/error')
     }
   };
 

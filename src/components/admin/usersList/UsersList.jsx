@@ -19,6 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { ALL_USERS, BLOCK_USER, UNBLOCK_USER } from "../../../utils/ConstUrls";
 import { adminInstance } from "../../../utils/axios";
+import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import debounce from "lodash.debounce"; // import debounce function from lodash library
 
@@ -29,6 +30,7 @@ const UsersList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const navigate = useNavigate()
   const d = new Date();
   let time = d.getTime();
 
@@ -39,7 +41,7 @@ const UsersList = () => {
         setState(time);
         toast.success("unblocked");
     } catch (error) {   
-      console.log(error);  
+      navigate('/error') 
     }
    
   };
@@ -51,7 +53,7 @@ const UsersList = () => {
       setState(time);
       toast.error("blocked");
     } catch (error) {
-      console.log(error);  
+      navigate('/error')
     }
   };
 
@@ -74,7 +76,7 @@ const UsersList = () => {
       const usersToDisplay = filteredUsers.slice(startIndex, endIndex);
       setUsers(usersToDisplay);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 

@@ -17,10 +17,11 @@ import { io } from "socket.io-client";
 import Conversations from "../conversations/Conversations";
 import ActiveSession from "../activeSession/ActiveSession";
 import ChatAvatar from "../chatAvatar/ChatAvatar"
+import { useNavigate } from "react-router-dom";
 
 function Messenger({ isUser }) {
 
-
+  const navigate = useNavigate()
   let commonUser;
   const doctorToken = useSelector((state) => state.doctor.doctorToken);
   if (doctorToken) {
@@ -90,7 +91,7 @@ function Messenger({ isUser }) {
         const res = await axios.get(`/message/${currentChat?._id}`);
         setMessages(res.data);
       } catch (err) {
-        console.log(err);
+        navigate('/error')
       }
     };
     getMessages();
@@ -127,7 +128,7 @@ function Messenger({ isUser }) {
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 
@@ -141,9 +142,8 @@ function Messenger({ isUser }) {
     try {
       const conversation = await axios.post("/conversation", body);
       setActiveConversation(conversation.data);
-      console.log(conversation);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 
@@ -154,9 +154,7 @@ function Messenger({ isUser }) {
     setActive(e);
   };
 
-  if(messages[0]?.conversationId === activeConversation?._id){
-    console.log("first")
-  }
+
   
 
   

@@ -14,6 +14,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const LIMIT = 8;
 
@@ -24,6 +25,7 @@ const UserSession = () => {
   const [activePage, setActivePage] = useState(1);
   const [totalSession, setTotalSessions] = useState(0);
   const [state, setState] = useState("");
+  const navigate = useNavigate()
 
   useEffect(() => {
     getSessionDetails();
@@ -41,7 +43,7 @@ const UserSession = () => {
       setSession(response.data.session);
       setTotalSessions(response.data.total);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 
@@ -61,7 +63,7 @@ const UserSession = () => {
         cancelAppointment(doctorID, appDate, appTime);
       })
       .catch((err) => {
-        console.log(err, "catch error in doctorFetching");
+        navigate('/error')
       });
   };
 
@@ -82,7 +84,7 @@ const UserSession = () => {
         setState(response);
       })
       .catch((err) => {
-        console.log(err, "catch error in doctorFetching");
+        navigate('/error')
       });
   };
 

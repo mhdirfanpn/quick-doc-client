@@ -23,7 +23,7 @@ const HandlePay = () => {
       );
       initPayment(result.data.data);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 
@@ -43,7 +43,7 @@ const HandlePay = () => {
           bookSession();
           appointment();
         } catch (err) {
-          console.log(err);
+          navigate('/error')
         }
       },
       theme: {
@@ -69,9 +69,7 @@ const HandlePay = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((res) => {
-        console.log(res);
-      });
+      .then(() => {});
   };
 
   const appointment = async () => {

@@ -54,7 +54,7 @@ const Mobile = () => {
         window.confirmationResult = confirmationResult;
       })
       .catch((error) => {
-        console.log(`error=> ${error.message}`);
+        navigate('/error')
       });
   };
 
@@ -67,7 +67,7 @@ const Mobile = () => {
         localStorage.setItem('userToken',tokenVal);
       })
       .catch((error) => {
-        console.log(`error=> ${error.message}`);
+        navigate('/error')
       });
   };
 

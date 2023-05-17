@@ -26,10 +26,8 @@ export default function Success() {
               Your booking has been successfully completed.
             </Text>
           </Heading>
-          <Text color={"gray.500"}>
-            Monetize your content by charging your most loyal readers and reward
-            them loyalty points. Give back to your loyal readers by granting
-            them access to your pre-releases and sneak-peaks.
+          <Text color={"red"}>
+            You can cancell the booking before one day of the session
           </Text>
           <Box mx="auto">
             <Button color={"blue.400"} onClick={() => navigate("/")}>

@@ -75,7 +75,7 @@ const DoctorCard = () => {
         setDoctor(response.data.doctor);
       })
       .catch((err) => {
-        console.log(err, "catch error in doctorFetching");
+        navigate('/error')
       });
   };
 

@@ -38,6 +38,7 @@ import jwtDecode from "jwt-decode";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../../../redux/spinnerSlice";
+import { useNavigate } from "react-router-dom";
 
 const DoctorProfileEdit = () => {
   const [showPasswordForm, setShowPasswordForm] = useState(false);
@@ -48,13 +49,14 @@ const DoctorProfileEdit = () => {
   const token = localStorage.getItem("doctorToken");
   const decode = jwtDecode(token);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const getDoctorDetails = async () => {
     try {
       const response = await doctorInstance.get(`${DOC_DETAILS}/${decode.id}`);
       setDoctorDetails(response.data.doctorDetails);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 
@@ -82,8 +84,7 @@ const DoctorProfileEdit = () => {
             toast.error("Oops Something went wrong");
           }
         } catch (err) {
-          console.log(err);
-          toast.error("Oops Something went wrong");
+          navigate('/error')
         }
         actions.resetForm();
       },
@@ -103,7 +104,6 @@ const DoctorProfileEdit = () => {
     },
     validationSchema: changePasswordSchema,
     onSubmit: async (values, actions) => {
-      console.log(values);
       try {
         const response = await doctorInstance.put(
           `${UPDATE_DOC_PASS}/${decode.id}`,
@@ -131,10 +131,8 @@ const DoctorProfileEdit = () => {
     if (profilePicture === undefined) {
       return toast.error("Please select an image");
     }
-    console.log(profilePicture);
     const formData = new FormData();
     formData.append("image", profilePicture);
-    console.log(formData);
     dispatch(showLoading());
 
     doctorInstance

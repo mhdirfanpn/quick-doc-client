@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "../../../utils/axios";
 import { GET_BANNER } from "../../../utils/ConstUrls";
+import { useNavigate } from "react-router-dom";
 import "./Body1.css";
 
 
 const Body1 = () => {
 
   const [banner,setBanner] = useState("")
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getBanner=async()=>{
@@ -14,7 +16,7 @@ const Body1 = () => {
         const response =await axios.get(GET_BANNER)
         setBanner(response.data)
       } catch (error) {
-        console.log(error);
+        navigate('/error')
       }
     }
  

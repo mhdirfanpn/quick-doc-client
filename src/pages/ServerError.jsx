@@ -5,7 +5,7 @@ function ServerErrorPage() {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(-2); // Takes the user back to the previous page
+    navigate(-2);
   };
 
   return (

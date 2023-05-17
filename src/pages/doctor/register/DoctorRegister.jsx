@@ -52,7 +52,7 @@ const DoctorRegister = () => {
           if (data.success) {
             navigate("/doctor-login");
           } else {
-            toast.error(data.message);
+            toast.error("something went wrong");
           }
         });
     actions.resetForm();

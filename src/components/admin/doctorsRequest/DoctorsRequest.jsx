@@ -45,7 +45,7 @@ const DoctorsRequest = () => {
       const usersToDisplay = filteredDoctors.slice(startIndex, endIndex);
       setDocReq(usersToDisplay);
     } catch (err) {
-      console.log(err);
+      navigate('/error')
     }
   };
 

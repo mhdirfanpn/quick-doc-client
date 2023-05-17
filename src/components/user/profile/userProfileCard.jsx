@@ -9,7 +9,6 @@ import {
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import { MdDateRange, MdEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-
 import jwtDecode from "jwt-decode";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -36,7 +35,7 @@ function UserProfileCard(props) {
         setUserDetails(response.data.userDetails);
       })
       .catch((err) => {
-        console.log(err);
+        navigate('/error')
       });
   };
 
