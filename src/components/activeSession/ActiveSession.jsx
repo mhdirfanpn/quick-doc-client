@@ -62,11 +62,10 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
           });
           setActiveSession(res.data);
           handleActiveSessionId(res.data?.doctorId);
-          const doctorData = await axios.get(`getDoctor/${res.data.doctorId}`, {
+          const doctorData = await axios.get(`getDoctor/${res.data?.doctorId}`, {
             headers: { Authorization: `Bearer ${userToken}` },
           });
-
-          setChatter(doctorData.data.doctor);
+          setChatter(doctorData.data?.doctor);
         }
       } catch (error) {
         navigate("/error");
@@ -113,7 +112,7 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
               size="md"
               y
               name="John Doe"
-              src={chatter.profilePic ? chatter.profilePic : `https://bit.ly/dan-abramov`}
+              src={chatter?.profilePic ? chatter?.profilePic : `https://bit.ly/dan-abramov`}
             />
             <Box ml="4">
               <Heading as="h2" fontSize="lg">
