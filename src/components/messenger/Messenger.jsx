@@ -203,9 +203,9 @@ function Messenger({ isUser }) {
         </Box>
       </Box>
       <Box w="53%" h="100vh">
-      {currentChat && (
+      {/* {currentChat && (
       <ChatAvatar isDoctor={doctorToken}  currentUserId={commonUser.id} />
-      )}
+      )} */}
         {currentChat ? (
           <>
             <Box
