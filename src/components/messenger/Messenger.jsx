@@ -223,7 +223,7 @@ function Messenger({ isUser }) {
               </Box>
             </Box>
 
-            { (messages[0]?.conversationId === activeConversation?._id || !messages[0]) && (
+            {/* { (messages[0]?.conversationId === activeConversation?._id || !messages[0]) && ( */}
               <Box mt="4" mb={12}>
                 <Textarea
                   placeholder="Type your message..."
@@ -239,7 +239,7 @@ function Messenger({ isUser }) {
                   Send
                 </Button>
               </Box>
-             )}
+             {/* )} */}
           </>
         ) : (
           <Text

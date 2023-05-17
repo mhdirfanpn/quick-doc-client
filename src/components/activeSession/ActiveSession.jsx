@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
   const [activeSession, setActiveSession] = useState("");
-  const [chatter,setChatter] = useState("")
+  const [chatter, setChatter] = useState("");
   const navigate = useNavigate();
   const doctorToken = useSelector((state) => state.doctor.doctorToken);
   const userToken = useSelector((state) => state.user.userToken);
@@ -52,29 +52,30 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
           );
           setActiveSession(res.data);
           handleActiveSessionId(res.data?.userId);
-          if(res.data?.userId){
+          if (res.data?.userId) {
             const userData = await doctorInstance.get(
               `getUser/${res.data.userId}`
             );
             setChatter(userData.data);
           }
-
         } else {
           const res = await axios.get(`getActiveSession/${currentUser}`, {
             headers: { Authorization: `Bearer ${userToken}` },
           });
           setActiveSession(res.data);
           handleActiveSessionId(res.data?.doctorId);
-          if(res.data?.doctorId){
-            const doctorData = await axios.get(`getDoctor/${res.data?.doctorId}`, {
-              headers: { Authorization: `Bearer ${userToken}` },
-            });
+          if (res.data?.doctorId) {
+            const doctorData = await axios.get(
+              `getDoctor/${res.data?.doctorId}`,
+              {
+                headers: { Authorization: `Bearer ${userToken}` },
+              }
+            );
             setChatter(doctorData.data?.doctor);
-          }         
+          }
         }
       } catch (error) {
-        console.log(error);
-     //   navigate("/error");
+        navigate("/error");
       }
     };
 
@@ -118,7 +119,11 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
               size="md"
               y
               name="John Doe"
-              src={chatter?.profilePic ? chatter?.profilePic : `https://bit.ly/dan-abramov`}
+              src={
+                chatter?.profilePic
+                  ? chatter?.profilePic
+                  : `https://bit.ly/dan-abramov`
+              }
             />
             <Box ml="4">
               <Heading as="h2" fontSize="lg">
