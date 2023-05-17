@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { Box, Heading, Stack, Flex, Avatar } from "@chakra-ui/react";
 import axios from "../../utils/axios";
 import { USER_CHAT, DOC_CHAT } from "../../utils/ConstUrls";
+import { useNavigate } from "react-router-dom";
 
 const Conversations = ({ conversation, currentUser, isDoctor }) => {
   const [user, setUser] = useState("");
+  const navigate = useNavigate()
 
   useEffect(() => {
 
