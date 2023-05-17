@@ -41,7 +41,7 @@ const Conversations = ({ conversation, currentUser, isDoctor }) => {
           />
           <Box ml="4">
             <Heading as="h2" fontSize="lg">
-              {isDoctor ? user.userName : `Dr. ${user.fullName}`}
+              {isDoctor ? user?.userName : `Dr. ${user?.fullName}`}
             </Heading>
           </Box>
         </Flex>
