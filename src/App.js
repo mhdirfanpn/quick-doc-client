@@ -23,6 +23,7 @@ import Login from './pages/user/login/Login'
 import RoomPage from './pages/room'
 import DoctorRegister from './pages/doctor/register/DoctorRegister'
 import NotFound from './pages/NotFound'
+import ServerErrorPage from './pages/ServerError'
 import Dashboard from './pages/admin/dashboard/Dashboard'
 
 const Banner = lazy(()=>import('./pages/admin/banner/Banner'))
@@ -66,6 +67,10 @@ const App = () => {
 
         <Route path='*' element={      
            <NotFound/>   
+        }/>
+
+        <Route path='/error' element={      
+           <ServerErrorPage/>   
         }/>
 
   {/* ========================================USER ROUTES============================================================= */}        

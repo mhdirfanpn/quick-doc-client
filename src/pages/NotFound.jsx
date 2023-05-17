@@ -4,19 +4,18 @@ import { useNavigate } from 'react-router-dom';
 
 export default function NotFound() {
     const navigate = useNavigate()
-    const [user,setUser] = useState(false)
-    const [doctor,setDoctor] = useState(false)
-    const [admin,setAdmin] = useState(false)
 
-    useEffect(()=>{
-        if(window.location.href.includes('admin')) setAdmin(true)
-        else if(window.location.href.includes('doctor-login')) setDoctor(true)
-        else setUser(true)
-    },[])
+    const handleGoBack = () => {
+      navigate(-1); // Takes the user back to the previous page
+    };
    
 
   return (
-    <Box textAlign="center" py={10} px={6}>
+    <Box  display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      height="100vh">
       <Heading
         display="inline-block"
         as="h2"
@@ -32,36 +31,16 @@ export default function NotFound() {
         The page you're looking for does not seem to exist
       </Text>
 
-      { user &&
+     
         <Button
         colorScheme="teal"
         bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
         color="white"
         variant="solid"
-        onClick={()=>navigate('/home')}
+        onClick={handleGoBack}
         >
-        Go to Home
-      </Button>}
-      { doctor &&
-        <Button
-        colorScheme="teal"
-        bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
-        color="white"
-        variant="solid"
-        onClick={()=>navigate('/doctor-home')}
-        >
-        Go to Home
-      </Button>}
-      { admin &&
-        <Button
-        colorScheme="teal"
-        bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
-        color="white"
-        variant="solid"
-        onClick={()=>navigate('/dashboard')}
-        >
-        Go to Home
-      </Button>}
+         Go Back
+      </Button>
     </Box>
   );
 }
