@@ -36,7 +36,7 @@ const Conversations = ({ conversation, currentUser, isDoctor }) => {
             size="md"
             name="John Doe"
             src={
-              user.profilePic ? user.profilePic : `https://bit.ly/dan-abramov"`
+              user?.profilePic ? user?.profilePic : `https://bit.ly/dan-abramov"`
             }
           />
           <Box ml="4">
