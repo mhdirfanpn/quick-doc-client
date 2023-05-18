@@ -75,7 +75,7 @@ const ActiveSession = ({ handleActiveSessionId, currentUser, isDoctor }) => {
           }
         }
       } catch (error) {
-        navigate("/error");
+        console.log(error);
       }
     };
 
