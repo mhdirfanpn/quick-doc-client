@@ -34,7 +34,7 @@ const Register = () => {
         }
       })
       .catch((err) => {
-        navigate('/error')
+        console.log(err);
       });
     actions.resetForm();
   };

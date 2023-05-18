@@ -33,7 +33,7 @@ export default function Login() {
             navigate("/home");
             localStorage.setItem("userToken", data.token);
           } else {
-            toast.error("you are blocked");
+            toast.error("something went wrong");
           }
         })
         .catch((err) => {
