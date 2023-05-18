@@ -91,7 +91,7 @@ function Messenger({ isUser }) {
         const res = await axios.get(`/message/${currentChat?._id}`);
         setMessages(res.data);
       } catch (err) {
-        navigate('/error')
+        console.log(err);
       }
     };
     getMessages();
@@ -128,7 +128,7 @@ function Messenger({ isUser }) {
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
-      navigate('/error')
+      console.log(err);
     }
   };
 
@@ -143,7 +143,7 @@ function Messenger({ isUser }) {
       const conversation = await axios.post("/conversation", body);
       setActiveConversation(conversation.data);
     } catch (err) {
-      navigate('/error')
+      console.log(err);
     }
   };
 
