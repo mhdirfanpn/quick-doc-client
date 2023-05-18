@@ -44,6 +44,7 @@ instance.interceptors.response.use(
   (error) => {
     if (error?.response?.data?.userBlocked) {
       localStorage.removeItem("userToken");
+      window.location.href='/'
     } 
     else {
       return Promise.reject(error);
