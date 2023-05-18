@@ -86,7 +86,7 @@ export default function ChatNavBar() {
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="flex items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <ul className="flex flex-col items-center justify-center space-y-8 md:flex md:flex-row md:space-x-6 md:space-y-0">
               <li className="text-white cursor-pointer">
                 <p onClick={() => navigate("/user-messenger")}>Chat</p>
               </li>
