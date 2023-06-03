@@ -136,7 +136,7 @@ const App = () => {
 
           <Route path='/checkAvailability/:doctorId' element={
             <AuthorizeUser>
-<Suspense fallback={<SpinnerLoader/>}>
+                <Suspense fallback={<SpinnerLoader/>}>
                 <AvailableTime/>
                 </Suspense>
             </AuthorizeUser>

@@ -102,7 +102,7 @@ export default function Login() {
                 justify={"space-between"}
               >
                 <Text color={"blue.500"}>
-                  Doesn't have an account? <Link to="/SignUp">Sign in</Link>
+                  Doesn't have an account? <Link to="/SignUp">Register</Link>
                 </Text>
               </Stack>
               <Button
