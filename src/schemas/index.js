@@ -22,7 +22,7 @@ export const userSignUpSchema = yup.object().shape({
   password: yup
     .string()
     .min(5)
-    .matches(passwordRules, { message: "Password must minimum 5 characters with 1 capital letter & special character" })
+    .matches(passwordRules, { message: "Password must have minimum 5 characters with 1 capital letter & special character" })
     .required("Password is required"),
   number: yup
     .string()
