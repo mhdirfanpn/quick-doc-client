@@ -8,30 +8,27 @@ export default function ChatNavBar() {
   const [navbar, setNavbar] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const user = localStorage.getItem("userToken")
 
   const handleLogout = () => {
-    Swal.fire({
-      title: "Are you sure want to log out?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, log out!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        localStorage.removeItem("userToken");
-        dispatch(setLogout());
-        navigate("/");
-      }
-    });
+    localStorage.removeItem("userToken");
+    dispatch(setLogout());
+    navigate("/login");
   };
 
   return (
 
     <nav
-  className="w-full bg-white shadow" 
-  style={{ backgroundColor: "#4851b0", position: "fixed", top: 0, left: 0, right: 0, zIndex: 999}}
->
+      className="w-full bg-white shadow"
+      style={{
+        backgroundColor: "#4851b0",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 999
+      }}
+    >
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -82,36 +79,46 @@ export default function ChatNavBar() {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0  ${
-              navbar ? "block" : "hidden"
-            }`}
+            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0  ${navbar ? "block" : "hidden"
+              }`}
           >
             <ul className="flex flex-col items-center justify-center space-y-8 md:flex md:flex-row md:space-x-6 md:space-y-0">
-              <li className="text-white cursor-pointer">
-                <p onClick={() => navigate("/user-messenger")}>Chat</p>
-              </li>
-              <li className="text-white cursor-pointer">
-                <p onClick={() => navigate("/userSessions")}>Appointment</p>
-              </li>
-              <li className="text-white cursor-pointer">
-                <p onClick={() => navigate("/profile")}>Profile</p>
-              </li>
-              <li className="text-white text-right-0">
-                <button
-                  onClick={handleLogout}
-                  className="bg-transparent text-white  text-right font-bold uppercase py-2 px-4 border border-white hover:bg-white hover:text-green-600 rounded transition duration-500 ease-in-out"
-                >
-                  Logout
-                </button>
-              </li>
+              {user ? (
+                <>
+                  <li className="text-white cursor-pointer">
+                    <p onClick={() => navigate("/user-messenger")}>Chat</p>
+                  </li>
+                  <li className="text-white cursor-pointer">
+                    <p onClick={() => navigate("/userSessions")}>Appointment</p>
+                  </li>
+                  <li className="text-white cursor-pointer">
+                    <p onClick={() => navigate("/profile")}>Profile</p>
+                  </li>
+                  <li className="text-white text-right">
+                    <button
+                      onClick={handleLogout}
+                      className="bg-transparent text-white font-bold uppercase py-2 px-4 border border-white hover:bg-white hover:text-green-600 rounded transition duration-500 ease-in-out"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li className="text-white text-right">
+                  <button
+                    onClick={()=>navigate('/login')}
+                    className="bg-transparent text-white font-bold uppercase py-2 px-4 border border-white hover:bg-white hover:text-green-600 rounded transition duration-500 ease-in-out"
+                  >
+                    Login
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>
       </div>
     </nav>
+
+
   );
 }
-
-
-
-

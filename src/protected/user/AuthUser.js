@@ -12,7 +12,7 @@ export default function AuthUser({ children }) {
         userToken: token,
       })
     );
-    return <Navigate to={"/home"} />;
+    return <Navigate to={"/"} />;
   }
 
   return children;

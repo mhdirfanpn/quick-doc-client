@@ -28,15 +28,14 @@ const Register = () => {
       })
       .then(({ data }) => {
         if (data.success) {
-          navigate("/");
+          navigate("/login");
         } else {
           toast.error(data.message);
         }
       })
       .catch((err) => {
-        console.log(err);
+        navigate("/error")
       });
-    actions.resetForm();
   };
 
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =

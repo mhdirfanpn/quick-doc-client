@@ -29,17 +29,15 @@ export default function Login() {
         .then(({ data }) => {
           if (data.success) {
             document.cookie = `token:${data.token}`;
-       
-            navigate("/home");
+            navigate("/");
             localStorage.setItem("userToken", data.token);
-          } else {
-            toast.error("something went wrong");
+          }else{
+            toast.error(data.message);
           }
         })
         .catch((err) => {
-          navigate('/error')
+          navigate("/error")
         });
-    actions.resetForm();
   };
 
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
