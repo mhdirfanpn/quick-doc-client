@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogout } from "../../../redux/userSlice";
-import Swal from "sweetalert2";
 
 export default function ChatNavBar() {
   const [navbar, setNavbar] = useState(false);

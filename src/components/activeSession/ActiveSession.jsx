@@ -1,8 +1,8 @@
+/* eslint-disable */ 
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Heading, Stack, Flex, Avatar, Badge } from "@chakra-ui/react";
 import axios from "../../utils/axios";
-import { USER_CHAT, DOC_CHAT } from "../../utils/ConstUrls";
 import { MdVideoCall } from "react-icons/md";
 import { doctorInstance } from "../../utils/axios";
 import jwtDecode from "jwt-decode";

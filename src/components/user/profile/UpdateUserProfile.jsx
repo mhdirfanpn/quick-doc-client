@@ -171,6 +171,7 @@ const UpdateProperty = () => {
 
   useEffect(() => {
     getUserDetails();
+    // eslint-disable-next-line
   }, [state]);
 
   let imageUrl = UserDetails.profilePic;

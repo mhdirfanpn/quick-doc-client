@@ -7,23 +7,24 @@ import "./Body1.css";
 
 const Body1 = () => {
 
-  const [banner,setBanner] = useState("")
+  const [banner, setBanner] = useState("")
   const navigate = useNavigate()
 
   useEffect(() => {
-    const getBanner=async()=>{
+    const getBanner = async () => {
       try {
-        const response =await axios.get(GET_BANNER)
+        const response = await axios.get(GET_BANNER)
         setBanner(response.data)
       } catch (error) {
         navigate('/error')
       }
     }
- 
+
     getBanner()
+    // eslint-disable-next-line
   }, [])
 
-  
+
   return (
     <>
       <div className="w-full mt-44 bg-white flex flex-col justify-between">

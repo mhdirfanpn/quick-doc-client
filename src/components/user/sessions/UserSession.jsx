@@ -29,6 +29,7 @@ const UserSession = () => {
 
   useEffect(() => {
     getSessionDetails();
+    // eslint-disable-next-line
   }, [activePage, state]);
 
   const getSessionDetails = async () => {

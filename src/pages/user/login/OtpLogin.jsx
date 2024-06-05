@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import React, { useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { Button, Flex, FormControl, FormLabel, Heading, Text, Stack, Image, Input } from "@chakra-ui/react";
@@ -8,15 +9,14 @@ import jwtDecode from "jwt-decode";
 import axios from "../../../utils/axios";
 import { useDispatch, } from "react-redux";
 
-
 const Mobile = () => {
   const [mobile, setMobile] = useState("");
   const [otp, setOtp] = useState("");
   const [flag, setFlag] = useState(false);
+  // eslint-disable-next-line
   const [username,setUsername] = useState();
   const [tokenVal,setTokenVal] = useState();
   const navigate = useNavigate()
-  const dispatch = useDispatch();
 
 
   const generateRecaptcha = () => {

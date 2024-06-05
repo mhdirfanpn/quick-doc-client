@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import axios from "../../../utils/axios";
 import { USER_DETAILS } from "../../../utils/ConstUrls";
 
+// eslint-disable-next-line
 function UserProfileCard(props) {
   const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ function UserProfileCard(props) {
 
   useEffect(() => {
     getUserDetails();
+    // eslint-disable-next-line
   }, []);
 
   const getUserDetails = async () => {

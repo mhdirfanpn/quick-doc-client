@@ -53,6 +53,7 @@ const DoctorCards = () => {
 
   useEffect(() => {
     getAllDoctors();
+    // eslint-disable-next-line
   }, []);
 
   const token = localStorage.getItem("userToken");

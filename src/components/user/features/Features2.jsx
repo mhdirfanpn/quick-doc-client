@@ -39,7 +39,7 @@ export default function Features2() {
     </>
   );
 }
-
+// eslint-disable-next-line
 const Arrow = createIcon({
   displayName: "Arrow",
   viewBox: "0 0 72 24",

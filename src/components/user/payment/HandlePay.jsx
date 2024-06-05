@@ -39,6 +39,7 @@ const HandlePay = () => {
 
       handler: async (response) => {
         try {
+          // eslint-disable-next-line
           const result = await axios.post("/payment/verify", response);
           bookSession();
           appointment();

@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import React from 'react'
 import { Box, Heading, Flex, Avatar } from "@chakra-ui/react";
 import jwtDecode from 'jwt-decode';

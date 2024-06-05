@@ -1,5 +1,4 @@
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function NotFound() {
