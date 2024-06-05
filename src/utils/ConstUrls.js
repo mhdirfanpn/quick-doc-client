@@ -1,6 +1,6 @@
-export const baseUserUrl = "https://api.quickdoc.online/api/"
-export const baseAdminUrl = "https://api.quickdoc.online/api/admin"
-export const baseDoctorUrl = "https://api.quickdoc.online/api/doc"
+export const baseUserUrl = "https://quickdoc-backend.irfanpn.online/api/"
+export const baseAdminUrl = "https://quickdoc-backend.irfanpn.online/api/admin"
+export const baseDoctorUrl = "https://quickdoc-backend.irfanpn.online/api/doc"
 //USER
 
 export const USER_SIGN_UP='/signup'
