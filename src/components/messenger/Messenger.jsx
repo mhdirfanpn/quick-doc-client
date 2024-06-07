@@ -48,7 +48,7 @@ function Messenger({ isUser }) {
 
 
   useEffect(() => {
-    socket.current = io("https://quickdoc-backend.irfanpn.online/");
+    socket.current = io("https://quickdoc-backend.mhdirfan.online/");
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
